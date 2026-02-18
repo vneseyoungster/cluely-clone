@@ -178,10 +178,12 @@ export default ComponentName
 - Remove legacy `renderer/` directory (unused CRA setup)
 - Choose single package manager (remove either `package-lock.json` or `pnpm-lock.yaml`)
 
-## Research Artifacts
+## Documentation
 | Document | Location |
 |----------|----------|
-| Structure Analysis | `plans/sessions/2026-02-18-scan/research/structure.md` |
-| Code Patterns | `plans/sessions/2026-02-18-scan/research/patterns.md` |
-| Dependency Audit | `plans/sessions/2026-02-18-scan/research/dependencies.md` |
-| Git History | `plans/sessions/2026-02-18-scan/research/history.md` |
+| Index | `docs/README.md` |
+| Architecture | `docs/architecture.md` |
+| Code Patterns | `docs/patterns.md` |
+| Capabilities | `docs/capabilities.md` |
+| Dependencies | `docs/dependencies.md` |
+| Git History | `docs/git-history.md` |
