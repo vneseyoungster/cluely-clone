@@ -54,11 +54,18 @@ Generates code solutions with:
 - Side-by-side code diff visualization
 - Uses `diff` library for line-by-line comparison
 
-### Voice Input
+### Voice Input (ElevenLabs Scribe STT)
 
-- MediaRecorder captures mic audio
-- Sends base64 audio to Gemini for transcription
-- Results displayed in audio result area
+- **Technology:** ElevenLabs Scribe real-time streaming STT
+- **Model:** `scribe_v2_realtime`
+- **Features:**
+  - Real-time streaming transcription via WebSocket
+  - Partial transcripts shown while speaking
+  - Committed transcripts accumulated for final result
+  - Microphone settings: echo cancellation, noise suppression, auto gain
+- **Authentication:** Single-use tokens generated server-side via `@elevenlabs/elevenlabs-js`
+- **React Integration:** `useScribeSTT` custom hook wraps `@elevenlabs/react`
+- **Flow:** Click Voice -> Get token -> Connect WebSocket -> Stream audio -> Show partials -> Stop -> Send to Gemini
 
 ### Chat Interface
 

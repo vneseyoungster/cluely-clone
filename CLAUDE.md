@@ -21,6 +21,7 @@ Electron Main Process (electron/)
 ├── WindowHelper.ts   → Frameless transparent window management
 ├── ScreenshotHelper.ts → Screenshot capture and queues
 ├── LLMHelper.ts      → Gemini/Ollama LLM abstraction
+├── ElevenLabsHelper.ts → ElevenLabs Scribe STT token generation
 ├── ProcessingHelper.ts → Orchestrates AI analysis
 ├── shortcuts.ts      → Global keyboard shortcuts
 ├── ipcHandlers.ts    → IPC channel registrations
@@ -33,6 +34,8 @@ React Renderer (src/)
 │   ├── Queue/        → Screenshot list, commands
 │   ├── Solutions/    → Solution display, debug
 │   └── ui/           → Primitives (toast, dialog, card)
+├── hooks/            → Custom React hooks
+│   └── useScribeSTT.ts → ElevenLabs Scribe STT hook
 ├── types/            → TypeScript interfaces
 └── lib/utils.ts      → cn() utility
 ```
@@ -44,6 +47,7 @@ React Renderer (src/)
 | `free-cluely/src/` | React renderer source |
 | `free-cluely/src/_pages/` | Page-level components |
 | `free-cluely/src/components/` | Reusable components |
+| `free-cluely/src/hooks/` | Custom React hooks |
 | `free-cluely/src/types/` | TypeScript type definitions |
 | `free-cluely/dist-electron/` | Compiled Electron main |
 | `free-cluely/dist/` | Built renderer |
@@ -74,11 +78,13 @@ npm run build
 | Variable | Required | Default | Purpose |
 |----------|----------|---------|---------|
 | `GEMINI_API_KEY` | Yes* | - | Google Gemini API key |
+| `ELEVENLABS_API_KEY` | Yes** | - | ElevenLabs API key for Scribe STT |
 | `USE_OLLAMA` | No | `false` | Set `"true"` for local Ollama |
 | `OLLAMA_MODEL` | No | auto | Ollama model name |
 | `OLLAMA_URL` | No | `http://localhost:11434` | Ollama server URL |
 
 *Required unless `USE_OLLAMA=true`
+**Required for voice input feature
 
 ## Keyboard Shortcuts
 | Shortcut | Action |
@@ -143,6 +149,7 @@ export default ComponentName
 | `gemini-chat` | R→M | Chat with LLM |
 | `switch-to-ollama` | R→M | Change to Ollama provider |
 | `switch-to-gemini` | R→M | Change to Gemini provider |
+| `get-scribe-token` | R→M | Get ElevenLabs Scribe STT token |
 | `screenshot-taken` | M→R | Push new screenshot |
 | `solution-success` | M→R | Push solution result |
 | `debug-success` | M→R | Push debug result |
@@ -151,6 +158,8 @@ export default ComponentName
 | Package | Purpose |
 |---------|---------|
 | `@google/generative-ai` | Gemini AI SDK |
+| `@elevenlabs/elevenlabs-js` | ElevenLabs server SDK (token generation) |
+| `@elevenlabs/react` | ElevenLabs React hooks (useScribe) |
 | `screenshot-desktop` | Desktop screenshot capture |
 | `sharp` | Image processing |
 | `tesseract.js` | OCR engine |

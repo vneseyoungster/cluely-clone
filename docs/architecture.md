@@ -31,6 +31,7 @@ free-cluely/
 │   ├── ScreenshotHelper.ts       # Screenshot capture + queue
 │   ├── ProcessingHelper.ts       # LLM orchestration
 │   ├── LLMHelper.ts              # Gemini + Ollama abstraction
+│   ├── ElevenLabsHelper.ts       # ElevenLabs Scribe STT token generation
 │   └── shortcuts.ts              # Global keyboard shortcuts
 │
 ├── dist-electron/                # Compiled main process (JS)
@@ -74,6 +75,7 @@ free-cluely/
 | `ScreenshotHelper` | Dual-queue capture (main + debug), max 5 each |
 | `ProcessingHelper` | Orchestrates AI analysis flow |
 | `LLMHelper` | Provider abstraction (Gemini/Ollama) |
+| `ElevenLabsHelper` | ElevenLabs Scribe STT token generation |
 | `ShortcutsHelper` | Global keyboard shortcuts |
 
 ## IPC Channels
@@ -86,6 +88,7 @@ free-cluely/
 | `gemini-chat` | R->M | Chat with LLM |
 | `switch-to-ollama` | R->M | Switch provider |
 | `switch-to-gemini` | R->M | Switch provider |
+| `get-scribe-token` | R->M | Get ElevenLabs Scribe STT token |
 | `screenshot-taken` | M->R | Push new screenshot |
 | `solution-success` | M->R | Push solution result |
 | `debug-success` | M->R | Push debug result |
