@@ -10,10 +10,14 @@
 
 | Package | Version | Purpose |
 |---------|---------|---------|
+| `@elevenlabs/client` | latest | ElevenLabs client SDK |
+| `@elevenlabs/elevenlabs-js` | latest | ElevenLabs server SDK (token generation) |
+| `@elevenlabs/react` | latest | ElevenLabs React hooks (useScribe) |
 | `@google/generative-ai` | 0.2.1 | Gemini AI SDK |
 | `@radix-ui/react-dialog` | 1.1.2 | Dialog primitive |
 | `@radix-ui/react-toast` | 1.2.2 | Toast primitive |
 | `axios` | 1.11.0 | HTTP client |
+| `dotenv` | 16.4.5 | Environment variable loading |
 | `lucide-react` | 0.460.0 | Icons |
 | `react` | 18.3.1 | UI framework |
 | `react-dom` | 18.3.1 | React DOM |
